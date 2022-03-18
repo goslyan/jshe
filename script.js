@@ -1,5 +1,5 @@
 console.log("hehe, this console log gagaga")
-let title = prompt('Как называется ваш проект?', 'jshe');
+let title = prompt('Как называется ваш проект?');
 let screens = prompt('Какие типы экранов нужно разработать?', 'Простые, Сложные, Интерактивные');
 let screenPrice = +prompt('Сколько будет стоить данная работа?', '12000');
 let adaptive = confirm('Нужен ли адаптив на сайте?');
@@ -15,6 +15,11 @@ let allServicePrices;
 let mas = screens.split('');
 
 
+
+const getTitle = function() {
+    return title.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()})
+}
+title = getTitle()
 
 
 const getAllServicePrices = function (servicePrice1, servicePrice2) {
