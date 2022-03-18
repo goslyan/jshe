@@ -17,7 +17,10 @@ let mas = screens.split('');
 
 
 const getTitle = function() {
-    return title.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()})
+    let titleNew = title.split('')[0].toUpperCase()
+    let title2 = title.slice(1);
+    title = titleNew + title2
+    console.log(title); 
 }
 title = getTitle()
 
