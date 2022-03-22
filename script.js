@@ -22,11 +22,10 @@ const isNumber = function(num) {
 const asking = function() {
     title = prompt('Как называется ваш проект?', "Название проекта");
     screens = prompt('Какие типы экранов нужно разработать?', "Простые, Сложные, Интерактивные");
-    screenPrice = prompt('Сколько будет стоить данная работа?');
 
-    while(!isNumber(screenPrice)) {
-        screenPrice = prompt('Сколько будет стоить данная работа?');
-    }
+    do {
+        screenPrice = prompt('Сколько будет стоить данная работа?')
+    } while (!isNumber(screenPrice))
 
     adaptive = confirm('Нужен ли адаптив на сайте?');
 }
@@ -45,6 +44,7 @@ const getRollbackMessage = function(price) {
 
 const getAllServicePrices = function() {
     let sum = 0;
+    let n = 0;
 
     for (let i = 0; i < 2; i++) {
 
@@ -54,16 +54,21 @@ const getAllServicePrices = function() {
             let service2 = prompt('Какой дополнительный тип услуги нужен?');
         }
 
-        sum += +prompt('Сколько это будет стоить?');
+        do {
+            n = +prompt('Сколько это будет стоить?');
+        } while(!isNumber(n))
+        
+        sum += n;
     }
-
     return sum
     // return servicePrice1 + servicePrice2;
 };
 
+
 const getFullPrice = function() {
    return screenPrice + allServicePrices;
 };
+
 
 const getTitle = function() {
     let titleNew = title.split('')[0].toUpperCase()
@@ -102,5 +107,5 @@ console.log(getRollbackMessage(fullPrice));
 console.log(typeof title);
 console.log(typeof screenPrice);
 console.log(typeof adaptive);
-console.log("Cтоимость за вычетом процента отката посреднику:" + Math.round(servicePercentPrice));
-console.log("Стоимость верстки экранов " + screenPrice + " рублей/ долларов/гривен/юаней" + " и стоимось разработки сайта " + fullPrice + " рублей/ долларов/гривен/юаней");
+console.log("Cтоимость за вычетом процента отката посреднику:" + rollback);
+console.log("Стоимость верстки экранов " + screenPrice + " рублей/ долларов/гривен/юаней");
