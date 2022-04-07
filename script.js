@@ -22,11 +22,11 @@ DomElement.prototype.newElem = function () {
         width: ${this.width}px;
         background: ${this.bg};
         font-size: ${this.fontSize}px;`
-    return elem;
-};
+    return elem
+}
 
-let elemDiv = new DomElement('.block', 100, 200, 'green', 12)
-let elemP = new DomElement('#best', 150, 400, 'red', 12)
+let elemDiv = new DomElement('.block', 100, 400, 'blue', 12)
+let elemP = new DomElement('#best', 100, 400, 'cyan', 16)
 
 document.body.appendChild(elemDiv.newElem())
 document.body.appendChild(elemP.newElem())
